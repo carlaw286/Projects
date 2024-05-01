@@ -1,0 +1,86 @@
+:root {
+  --blue: #0379FF;
+  --light-blue: #9AC9FF;
+  --dark-blue: #0261CC;
+  --white: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 20px;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-image: url(../Assets/cour-cert.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2.5rem;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+}
+
+.content {
+  position: relative;
+  top: 15rem;
+  right: 2.5rem;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.content h1 {
+  font-family: 'Poppins', sans-serif;
+  color: #0B2907;
+  font-size: 3rem !important;
+  /* text-align: left; */
+  margin-top: 30px;
+}
+
+.content h2 {
+  font-family: 'Brush Script MT', 'Brush Script Std', cursive;
+  color: black;
+  /* text-align: left; */
+  margin-top: 235px;
+  margin-left: 120px;
+  font-size: 30px;
+}
+
+.byline {
+  position: absolute;
+  right: 50%; 
+  transform: translateX(50%); 
+  font-size: 50px;
+  text-align: center; 
+}
+.byline span {
+  font-weight: bold;
+}
+
+.download-button {
+  position: absolute;
+  bottom: 1rem;
+  margin-top: 20px;
+  right: 2rem;
+  padding: 10px 15px;
+  font-size: 18px;
+  background-color: var(--blue);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  background-color: var(--dark-blue);
+}
