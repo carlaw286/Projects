@@ -1,0 +1,242 @@
+
+#define BLYNK_PRINT Serial
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
+#include <Servo.h>
+#include <RtcDS1302.h>
+#include <ThreeWire.h>
+#include <LiquidCrystal_I2C.h>
+#define BLYNK_AUTH_TOKEN "_ZlYxibo6bHuZ3TmtutO7RiVx56kD7hN" //Enter your blynk auth token
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+ThreeWire myWire(D6, D7, D8);        // DAT, CLK, RST
+RtcDS1302<ThreeWire> Rtc(myWire);    // RTC Object
+
+Servo servo;
+//BUTTONS
+const int button1Pin = D0;  // Button 1 connected to digital pin 2
+const int button2Pin = D5;  // Button 2 connected to digital pin 3
+const int button3Pin = D3;
+
+char auth[] = BLYNK_AUTH_TOKEN;
+char ssid[] = "Narzo50";//Enter your WIFI name
+char pass[] = "123456789";//Enter your WIFI password
+
+int feedingTimeHours = 0;    // Global variable for feeding time hours
+int feedingTimeMinutes = 0;  // Global variable for feeding time minutes
+bool editingHours = true;
+bool servoActivated = false;
+
+
+
+
+//Get the button value
+BLYNK_WRITE(V0) { //led
+  digitalWrite(D0, param.asInt());
+}
+void setup() {
+  //Set the LED pin as an output pin
+  pinMode(D0, OUTPUT);
+  //Initialize the Blynk library
+  Blynk.begin(auth, ssid, pass, "blynk.cloud", 80);
+  //LCD
+  
+  lcd.init();
+  lcd.backlight();
+  lcd.clear();
+
+  Rtc.Begin();
+
+  RtcDateTime currentTime = RtcDateTime(__DATE__ , __TIME__);
+  Rtc.SetDateTime(currentTime);
+
+  servo.attach(D4);
+  //BUTTONS
+  pinMode(button1Pin, INPUT_PULLUP);
+  pinMode(button2Pin, INPUT_PULLUP);
+  pinMode(button3Pin, INPUT_PULLUP);
+  
+  Serial.begin(115200);
+  Serial.println("Serial communication started.");
+}
+
+
+BLYNK_WRITE(V1) { //draggable value
+  servo.write(param.asInt());
+}
+
+BLYNK_WRITE(V2) { 
+    // Move the servo from 0 to 90 degrees when button3Pin is pressed
+    servo.write(180); // Move the servo to position 0 degrees
+    delay(1000);      // Wait for 3 seconds
+    servo.write(0);  // Move the servo back to position 90 degrees
+}
+  
+
+BLYNK_WRITE(V5) { //BUTTON1
+  setFeedingTime();
+}
+
+/*not yet working
+BLYNK_WRITE(V6) {  //set timer button
+  // SET TIME INPUT
+  incrementFeedingTime(true);
+
+  Blynk.virtualWrite(V10, 0); // Clear the SET TIME INPUT widget after setting the time
+  Blynk.virtualWrite(V7, "Set Feeding Time:");
+  Blynk.virtualWrite(V8, String(feedingTimeHours) + " : " + String(feedingTimeMinutes));
+}
+BLYNK_WRITE(V10) { //set timer widget
+  // SET TIME INPUT
+  if (editingHours) {
+    feedingTimeHours = (param[0].asInt() + feedingTimeHours) % 24;
+  } else {
+    feedingTimeMinutes = (param[0].asInt() + feedingTimeMinutes) % 60;
+  }
+
+  Blynk.virtualWrite(V10, 0); // Clear the SET TIME INPUT widget after setting the time
+  Blynk.virtualWrite(V7, "Set Feeding Time:");
+  Blynk.virtualWrite(V8, String(feedingTimeHours) + " : " + String(feedingTimeMinutes));
+}
+
+*/
+
+void loop() {
+  //Run the Blynk library
+ Blynk.run();
+
+  int button1State = digitalRead(button1Pin);  
+  int button3State = digitalRead(button3Pin);
+  //CONDITIONS
+    if (button1State == HIGH) {
+           Serial.println("Button 1 pressed. Set Feeding Time");
+
+    setFeedingTime();
+  }
+    if (button3State == HIGH) {
+           Serial.println("Button 3 pressed. override servo move");
+
+    // Move the servo from 0 to 90 degrees when button3Pin is pressed
+    servo.write(180); // Move the servo to position 0 degrees
+    delay(1000);      // Wait for 3 seconds
+    servo.write(0);  // Move the servo back to position 90 degrees
+    
+    
+  }
+  //RTC
+  RtcDateTime now = Rtc.GetDateTime();
+  // Add 6 seconds to the current time
+  now += 12;
+
+  //LCD
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Date: ");
+  lcd.print(now.Day());
+  lcd.print("/");
+  lcd.print(now.Month());
+  lcd.print("/");
+  lcd.print(now.Year());
+
+  lcd.setCursor(0, 1);
+  lcd.print("Time: ");
+  lcd.print(now.Hour());
+  lcd.print(":");
+  lcd.print(now.Minute());
+  lcd.print(":");
+  lcd.print(now.Second());
+  Blynk.virtualWrite(V3, "Date: " + String(now.Day()) + "/" + String(now.Month()) + "/" + String(now.Year()));
+  Blynk.virtualWrite(V4, "Time: " + String(now.Hour()) + ":" + String(now.Minute()) + ":" + String(now.Second()));
+
+  if (now.Hour() == feedingTimeHours && now.Minute() == feedingTimeMinutes && now.Second() <= 5 && !servoActivated) //&& editingHours == true
+{
+  //digitalWrite(10, HIGH);
+  // Move the servo from 90 to 0 degrees
+  
+  servo.write(0); // Move the servo to position 90 degrees
+  delay(1000);      // Wait for 2 seconds
+  servo.write(180);  // Move the servo back to position 0 degrees 
+  delay(1000);      // Wait for 2 seconds
+  servo.write(0); // Move the servo to position 90 degrees
+  servoActivated = true;
+} else if (now.Hour() == feedingTimeHours && now.Minute() == feedingTimeMinutes && now.Second() >= 8  && servoActivated) //&& editingHours == true
+{
+    servoActivated = false;
+}
+  delay(500);
+} 
+
+
+void setFeedingTime()
+{
+  editingHours = true;
+  int i=0;
+
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print("Set feeding Time");
+  delay(1000);
+  lcd.clear();
+  lcd.print("HH:MM");
+  lcd.setCursor(0,1);
+
+   while (1) {
+    if (editingHours) {
+      lcd.setCursor(0, 1);
+      lcd.print(feedingTimeHours < 10 ? "0" : "");
+      lcd.print(feedingTimeHours);
+    } else {
+      lcd.setCursor(2, 1);
+      lcd.print(":");
+      lcd.setCursor(3, 1);
+      lcd.print(feedingTimeMinutes < 10 ? "0" : "");
+      lcd.print(feedingTimeMinutes);
+    }
+
+    int button2State = digitalRead(button2Pin);
+    if (button2State == HIGH) {
+           Serial.println("Button 2 pressed.");
+
+      if (editingHours) {
+        feedingTimeHours = (feedingTimeHours + 1) % 24;
+      } else {
+        feedingTimeMinutes = (feedingTimeMinutes + 1) % 60;
+      }
+      delay(200); // Debounce delay
+    }
+
+    int button1State = digitalRead(button1Pin);
+    if (button1State == HIGH) {
+           Serial.println("Button 1 pressed.");
+      if (editingHours) {
+        editingHours = false;
+      } else {
+        // If editing minutes, exit the loop and save the time
+        break;
+      }
+      delay(200); // Debounce delay
+    }
+  }
+  // Display the final HH:MM setting
+  lcd.clear();
+  lcd.print("Set feeding Time");
+  lcd.setCursor(0, 1);
+  lcd.print(feedingTimeHours < 10 ? "0" : "");
+  lcd.print(feedingTimeHours);
+  lcd.print(":");
+  lcd.print(feedingTimeMinutes < 10 ? "0" : "");
+  lcd.print(feedingTimeMinutes);
+  delay(1000);
+  
+  Blynk.virtualWrite(V7, "Set Feeding Time:");
+  Blynk.virtualWrite(V8, String(feedingTimeHours) + " : " + String(feedingTimeMinutes));
+
+}
+
+void incrementFeedingTime(bool editingHours) {
+  if (editingHours) {
+    feedingTimeHours = (feedingTimeHours + 1) % 24;
+  } else {
+    feedingTimeMinutes = (feedingTimeMinutes + 1) % 60;
+  }
+}
