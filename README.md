@@ -2,7 +2,7 @@
 
 ## Published on GitHub
 
-### Lucky Paws
+### [Lucky Paws](https://github.com/carlaw286/Projects/tree/main/Lucky%20Paws)
 **Lucky Paws**, coded in C#, is a user-friendly pet adoption software designed to seamlessly connect pet posters with adopters. Posters can easily list their pets, while adopters can browse through a feed similar to social media platforms, making it simple to find their new furry friend. The platform facilitates secure communication between parties, ensuring a smooth and efficient adoption process, ultimately helping pets find loving forever homes.
 
 ### Pet Feeding Automator
