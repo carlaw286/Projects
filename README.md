@@ -3,13 +3,13 @@
 ## Bootcamp trainings, upskills, and certification in Accenture
 ---
 
-** Accenture Technology Analyst School (ATAS)**
+**Accenture Technology Analyst School (ATAS)**
 - **Duration**: Aug 15 – 28, 2024
 - **Technology Platforms**: Marvel, Salesforce
 
 ---
 
-** Full Stack Web Development Bootcamp (Java–React–DevOps)**
+**Full Stack Web Development Bootcamp (Java–React–DevOps)**
 - **Duration**: Aug 29 – Nov 3, 2024
 - **Programming & Frameworks**: Java, JavaScript, Spring Boot, ReactJS
 - **Tools & IDEs**: IntelliJ, Visual Studio Code, Postman, Jenkins, Tomcat, Maven
@@ -18,7 +18,7 @@
 
 ---
 
-** Agile Foundations Training (Classroom)**
+**Agile Foundations Training (Classroom)**
 - **Duration**: Jan 13–14, 2025
 - **Topics Covered**:
   - Scrum Process
@@ -31,21 +31,21 @@
 
 ---
 
-** Tech-Iskwela Specialization: SQL Server (Virtual)**
+**Tech-Iskwela Specialization: SQL Server (Virtual)**
 - **Duration**: Jan 16–22, 2025
 - **Focus**: SQL Database Administration
 - **Tools Used**: SQL Server Management Studio (SSMS)
 
 ---
 
-** ASE Angular Upskilling**
+**ASE Angular Upskilling**
 - **Duration**: Jan 23 – Feb 6, 2025
 - **Skill Focus**: Angular Framework
 - **Project**: Developed a CRUD application integrated with an API (via JAR file)
 
 ---
 
-** Scrum Master Training (Virtual)**
+**Scrum Master Training (Virtual)**
 - **Duration**: Feb 17–20, 2025
 - **Topics Covered**:
   - Scrum Fundamentals
@@ -56,20 +56,20 @@
 
 ---
 
-** Node.js and Nest.js Bootcamp (Virtual)**
+**Node.js and Nest.js Bootcamp (Virtual)**
 - **Duration**: Feb 21 – Mar 4, 2025
 - **Skills Acquired**: TypeScript, Node.js, MongoDB, Mongoose, API Design
 - **Project**: Built REST APIs using NestJS + MongoDB
 
 ---
 
-** MongoDB SI Associate Certification**
+**MongoDB SI Associate Certification**
 - **Completed**: Mar 19, 2025
 - **Program**: MongoDB SI Associate Certification Bootcamp
 
 ---
 
-** Oracle Utilities CCB Bootcamp**
+**Oracle Utilities CCB Bootcamp**
 - **Duration**: Apr 21 – May 26, 2025
 - **Topics Covered**:
   - Customer Info, Billing, Rates, Measurements, VEE, Usage Calculation
@@ -78,7 +78,7 @@
 
 ---
 
-** Agentic AI Workshop (Microsoft 365 Copilot)**
+**Agentic AI Workshop (Microsoft 365 Copilot)**
 - **Date**: Nov 20, 2025
 - **Focus**: Learned how to build AI agents using M365 Copilot
 
