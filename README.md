@@ -1,87 +1,89 @@
 # Projects
 
 ## Bootcamp trainings, upskills, and certification in Accenture
- 
-**Accenture Technology Analyst School (ATAS)**
-Aug 15–58, 2024
+---
 
-Technology Platforms: Marvel, Salesforce
- 
- 
-**Full Stack Web Development Bootcamp (Java–React–DevOps)**
-Aug 29 – Nov 3, 2024
+## Accenture Technology Analyst School (ATAS)
+- **Duration**: Aug 15 – 58, 2024
+- **Technology Platforms**: Marvel, Salesforce
 
-Programming & Frameworks: Java, JavaScript, Spring Boot, ReactJS
+---
 
-Tools & IDEs: IntelliJ, Visual Studio Code, Postman, Jenkins, Tomcat, Maven
+## Full Stack Web Development Bootcamp (Java–React–DevOps)
+- **Duration**: Aug 29 – Nov 3, 2024
+- **Programming & Frameworks**: Java, JavaScript, Spring Boot, ReactJS
+- **Tools & IDEs**: IntelliJ, Visual Studio Code, Postman, Jenkins, Tomcat, Maven
+- **Databases**: SQL, MySQL Workbench
+- **Code Quality & CI/CD**: JUnit, SonarQube, Git, Selenium
 
-Databases: SQL, MySQL Workbench
+---
 
-Code Quality & CI/CD: JUnit, SonarQube, Git, Selenium
- 
- 
-**Agile Foundations Training (Classroom)**
-Jan 13–14, 2025
+## Agile Foundations Training (Classroom)
+- **Duration**: Jan 13–14, 2025
+- **Topics Covered**:
+  - Scrum Process
+  - Agile Principles
+  - Agile Requirements
+  - Tracking & Forecasting
+  - Estimation
+  - Definition of Done
+- **Tools Used**: Mural
 
-Topics: Scrum Process, Agile Principles, Agile Requirements, Tracking & Forecasting, Estimation, Definition of Done
+---
 
-Tools Used: Mural
- 
- 
-**Tech-Iskwela Specialization: SQL Server (Virtual)**
-Jan 16–22, 2025
+## Tech-Iskwela Specialization: SQL Server (Virtual)
+- **Duration**: Jan 16–22, 2025
+- **Focus**: SQL Database Administration
+- **Tools Used**: SQL Server Management Studio (SSMS)
 
-Focus: SQL Database Administration
+---
 
-Tools: SQL Server Management Studio (SSMS)
- 
- 
-**ASE Angular Upskilling**
-Jan 23 – Feb 6, 2025
+## ASE Angular Upskilling
+- **Duration**: Jan 23 – Feb 6, 2025
+- **Skill Focus**: Angular Framework
+- **Project**: Developed a CRUD application integrated with an API (via JAR file)
 
-Skill Focus: Angular Framework
+---
 
-Project: Developed a CRUD application integrated with an API (via JAR file)
- 
- 
-**Scrum Master Training (Virtual)**
-Feb 17–20, 2025
+## Scrum Master Training (Virtual)
+- **Duration**: Feb 17–20, 2025
+- **Topics Covered**:
+  - Scrum Fundamentals
+  - Sprint Planning
+  - Running the Sprint
+  - Sprint Completion
+- **Tools Used**: Figma
 
-Topics: Scrum Fundamentals, Sprint Planning, Running the Sprint, Sprint Completion
+---
 
-Tools Used: Figma
- 
- 
-**Node.js and Nest.js Bootcamp (Virtual)**
-Feb 21 – Mar 4, 2025
+## Node.js and Nest.js Bootcamp (Virtual)
+- **Duration**: Feb 21 – Mar 4, 2025
+- **Skills Acquired**: TypeScript, Node.js, MongoDB, Mongoose, API Design
+- **Project**: Built REST APIs using NestJS + MongoDB
 
-Skills: TypeScript, Node.js, MongoDB, Mongoose, API Design
+---
 
-Built REST APIs using NestJS + MongoDB
- 
- 
-**MongoDB SI Associate Certification**
-Completed Mar 19, 2025
+## MongoDB SI Associate Certification
+- **Completed**: Mar 19, 2025
+- **Program**: MongoDB SI Associate Certification Bootcamp
 
-Program: MongoDB SI Associate Certification Bootcamp
- 
- 
-**Oracle Utilities CCB Bootcamp**
-Apr 21 – May 26, 2025
+---
 
-Covered: Customer Info, Billing, Rates, Measurements, VEE, Usage Calculation
+## Oracle Utilities CCB Bootcamp
+- **Duration**: Apr 21 – May 26, 2025
+- **Topics Covered**:
+  - Customer Info, Billing, Rates, Measurements, VEE, Usage Calculation
+- **Tools Used**: Info Zones, UI Maps, BPA Scripts, BO Rules
+- **Hands-on**: Groovy/Java scripting, batch processing
 
-Tools: Info Zones, UI Maps, BPA Scripts, BO Rules
+---
 
-Hands-on: Groovy/Java scripting, batch processing
- 
- 
-**Agentic AI Workshop (Microsoft 365 Copilot)**
-Nov 20, 2025
+## Agentic AI Workshop (Microsoft 365 Copilot)
+- **Date**: Nov 20, 2025
+- **Focus**: Learned how to build AI agents using M365 Copilot
 
-Learned how to build AI agents using M365 Copilot
- 
- 
+---
+
 ## Published on GitHub
 
 ### [Lucky Paws](https://github.com/carlaw286/Projects/tree/main/Lucky%20Paws)
