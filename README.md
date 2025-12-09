@@ -63,7 +63,7 @@
 
 ---
 
-**MongoDB SI Associate Certification**
+**[MongoDB SI Associate Certification](https://learn.mongodb.com/c/9OqSfX2TR5W7X5pF7xeuMg)**
 - **Completed**: Mar 19, 2025
 - **Program**: MongoDB SI Associate Certification Bootcamp
 
